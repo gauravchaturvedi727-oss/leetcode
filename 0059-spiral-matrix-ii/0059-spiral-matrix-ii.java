@@ -11,27 +11,20 @@ class Solution {
 
         while (top <= bottom && left <= right) {
 
-            // Left -> Right
             for (int i = left; i <= right; i++) {
                 matrix[top][i] = num++;
             }
             top++;
-
-            // Top -> Bottom
             for (int i = top; i <= bottom; i++) {
                 matrix[i][right] = num++;
             }
             right--;
-
-            // Right -> Left
             if (top <= bottom) {
                 for (int i = right; i >= left; i--) {
                     matrix[bottom][i] = num++;
                 }
                 bottom--;
             }
-
-            // Bottom -> Top
             if (left <= right) {
                 for (int i = bottom; i >= top; i--) {
                     matrix[i][left] = num++;
