@@ -4,13 +4,13 @@ class Solution {
         for(int i = 0; i < nums.length; i++){
             sum = sum + nums[i];
         }
-        int lsum = 0;
+        int leftSum = 0;
         for(int j = 0; j < nums.length; j++){
-            int rsum = sum - lsum - nums[j];
-            if(lsum == rsum){
+            int rightSum = sum - leftSum - nums[j];
+            if(leftSum == rightSum){
                 return j;
             }
-            lsum = lsum + nums[j];
+            leftSum = leftSum + nums[j];
         }
         return -1;
     }
