@@ -47,6 +47,7 @@ class Solution {
             int mid = start + (end - start) / 2;
             if (nums[mid] == target) {
                 ans = mid;
+
                 start = mid + 1;
             }
 
@@ -58,6 +59,7 @@ class Solution {
                 end = mid - 1;
             }
         }
+
         return ans;
     }
 }
