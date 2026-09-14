@@ -6,23 +6,20 @@ class Solution {
 
         int time = 0;
         int kill = 0;
-        float[] arrivalTime = new float[dist.length];
-
-        for (int i = 0; i < dist.length; i++) {
-            arrivalTime[i] = (float) dist[i] / speed[i];
+        float[] areaTime = new float[dist.length];
+        for(int i = 0; i < dist.length; i++){
+            areaTime[i] = (float) dist[i] / speed[i];
         }
-        Arrays.sort(arrivalTime);
-        for (int i = 0; i < dist.length; i++) {
-
-            if (arrivalTime[i] > time) {
-                kill++;
+        Arrays.sort(areaTime);
+        for(int i = 0; i < dist.length; i++){
+            if(areaTime[i] > time){
                 time++;
+                kill++;
             }
-            else {
+            else{
                 return kill;
             }
         }
-
         return kill;
     }
 }
