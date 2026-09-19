@@ -1,7 +1,7 @@
 class Solution {
     public List<Integer> findDisappearedNumbers(int[] nums) {
         List<Integer> list = new ArrayList<>();
-        Arrays.sort(nums);
+        // Arrays.sort(nums);
         HashSet<Integer> set = new HashSet<>();
         for(int num : nums){
             set.add(num);
