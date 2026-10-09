@@ -4,22 +4,20 @@ class Solution {
     public String removeDuplicates(String s) {
         Stack<Character> st = new Stack<>();
 
-        for (int i = 0; i < s.length(); i++) {
+        for(int i = 0; i < s.length(); i++){
             char ch = s.charAt(i);
-
-            if (!st.isEmpty() && st.peek() == ch) {
+            if(!st.isEmpty() && st.peek() == ch){
                 st.pop();
-            } else {
+            }
+            else{
                 st.push(ch);
             }
         }
+        StringBuilder sb = new StringBuilder();
 
-        StringBuilder ans = new StringBuilder();
-
-        for (char ch : st) {
-            ans.append(ch);
+        for(char ch : st){
+            sb.append(ch);
         }
-
-        return ans.toString();
+        return sb.toString();
     }
 }
