@@ -13,10 +13,7 @@
 class Solution {
     public ListNode removeNodes(ListNode head) {
 
-        // Step 1: Reverse the linked list
         head = reverse(head);
-
-        // Step 2: Remove smaller nodes
         int max = head.val;
         ListNode curr = head;
 
@@ -29,8 +26,6 @@ class Solution {
                 max = curr.val;
             }
         }
-
-        // Step 3: Reverse again
         return reverse(head);
     }
 
