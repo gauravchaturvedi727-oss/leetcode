@@ -9,20 +9,44 @@
  * }
  */
 
+
 class Solution {
     public ListNode removeNodes(ListNode head) {
 
-        if (head == null || head.next == null) {
-            return head;
+        // Step 1: Reverse the linked list
+        head = reverse(head);
+
+        // Step 2: Remove smaller nodes
+        int max = head.val;
+        ListNode curr = head;
+
+        while (curr.next != null) {
+
+            if (curr.next.val < max) {
+                curr.next = curr.next.next;
+            } else {
+                curr = curr.next;
+                max = curr.val;
+            }
         }
 
-        head.next = removeNodes(head.next);
+        // Step 3: Reverse again
+        return reverse(head);
+    }
 
-        if (head.next != null &&
-            head.val < head.next.val) {
-            return head.next;
+    public ListNode reverse(ListNode head) {
+        ListNode prev = null;
+        ListNode curr = head;
+
+        while (curr != null) {
+            ListNode next = curr.next;
+
+            curr.next = prev;
+            prev = curr;
+            curr = next;
         }
 
-        return head;
+        return prev;
     }
 }
+
